@@ -1,0 +1,70 @@
+<jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<jnt = 'http://www.jahia.org/jahia/nt/1.0'>
+<mix = 'http://www.jcp.org/jcr/mix/1.0'>
+<rfnmix = 'http://www.rfnmix.jahia.ep.europa.eu'>
+<rfnnt = 'http://www.rfnnt.jahia.ep.europa.eu'>
+
+[rfnmix:epRfnMenuItem] mixin
+ - menuName (string) mandatory internationalized indexed=no
+
+[rfnmix:epRfnComponent] > jmix:droppableContent mixin
+
+[rfnnt:epRfnContent] > jnt:content
+
+[rfnmix:epRfnBreadcrumbEnabled] mixin
+
+[rfnmix:epRfnI18nFile] mixin
+ - fileNameRadix (string)
+ - fileParentDirectory (weakreference, picker[type='file'])
+
+[rfnmix:epRfnPicture] mixin
+ - picture (weakreference, picker[type='image'])
+ - pictureAltText (string) internationalized
+ - pictureCaption (string) internationalized
+
+[rfnnt:epRfnTextImage] > rfnnt:epRfnContent, jmix:editorialContent, rfnmix:epRfnPicture
+ - subtitle1 (string) internationalized
+ - subtitle2 (string) internationalized
+ - content (string, richtext) internationalized
+ - picturePosition (string, choicelist) internationalized indexed=no < 'positionLeft', 'positionRight'
+ - pictureSize (string, choicelist) internationalized indexed=no < 'smallSize', 'normalSize', 'bigSize'
+
+[rfnnt:epRfnMultimediaElement] > rfnnt:epRfnContent, jmix:editorialContent, mix:title
+ - contentMultimediaCaption (string) internationalized
+ - contentMultimediaDescription (string, textarea) internationalized
+ - contentMultimediaLongDescription (string, richtext) internationalized
+ - contentMultimediaType (string, choicelist) internationalized indexed=no < 'imageMedia', 'audioMedia', 'videoMedia', 'collectionMedia'
+ - contentMultimediaResolutionHorizontal (long) indexed=no
+ - contentMultimediaResolutionVertical (long) indexed=no
+ - contentMultimediaAutoplay (boolean) = 'true' indexed=no
+ - contentMultimediaInlineAutoplay (boolean) = 'true' indexed=no
+ - contentMultimediaThumbnailUrl (weakreference, picker[type='image']) mandatory
+ - contentMultimediaUrl (weakreference) mandatory
+
+[rfnnt:epRfnFormFile] > rfnnt:epRfnContent, mix:title, rfnmix:epRfnI18nFile
+
+[rfnnt:epRfnFormUrl] > rfnnt:epRfnContent, mix:title
+ + formUrl (nt:base)
+
+[rfnnt:epRfnReferenceDocumentFile] > rfnnt:epRfnContent, mix:title, rfnmix:epRfnI18nFile
+
+[rfnnt:epRfnReferenceDocumentUrl] > rfnnt:epRfnContent, mix:title
+ + documentUrl (nt:base)
+
+[rfnnt:epRfnBanner] > rfnnt:epRfnContent, rfnmix:epRfnComponent, rfnmix:epRfnPicture
+ - bannerHomepageUrl (string) indexed=no nofulltext
+ - banneHomepageEnable (boolean) = 'false' indexed=no
+ - activeOverlay (boolean) indexed=no
+ - lightboxWidth (long)
+ - ligntboxHeight (long)
+
+[rfnnt:epRfnIFrame] > rfnnt:epRfnContent, jmix:link
+ - width (long)
+ - height (long)
+
+[rfnnt:epRfnLink] > rfnnt:epRfnContent, mix:title, rfnmix:epRfnComponent
+
+[rfnnt:epRfnTitle] > rfnnt:epRfnContent, rfnmix:epRfnComponent
+ - type (string, choicelist) mandatory indexed=no < 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+ - text (string) mandatory internationalized
+
