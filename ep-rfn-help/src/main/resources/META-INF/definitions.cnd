@@ -1,0 +1,15 @@
+<mix = 'http://www.jcp.org/jcr/mix/1.0'>
+<rfnmix = 'http://www.rfnmix.jahia.ep.europa.eu'>
+<rfnnt = 'http://www.rfnnt.jahia.ep.europa.eu'>
+
+[rfnnt:epRfnHelpSeeAlso] > rfnnt:epRfnContent, mix:title
+ - anchor (string) mandatory
+
+[rfnnt:epRfnHelpFunctionality] > rfnnt:epRfnContent, mix:title
+ - paragraphContent (string, richtext) mandatory internationalized
+ - paragraphAnchor (string) mandatory
+ - paragraphImage (weakreference, picker[type='image'])
+ - paragraphImageLegend (string) internationalized
+
+[rfnnt:epRfnHelpEntry] > rfnnt:epRfnContent, rfnmix:epRfnComponent
+

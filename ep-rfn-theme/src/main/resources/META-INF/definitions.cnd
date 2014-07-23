@@ -1,0 +1,15 @@
+<jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<mix = 'http://www.jcp.org/jcr/mix/1.0'>
+<rfnmix = 'http://www.rfnmix.jahia.ep.europa.eu'>
+<rfnnt = 'http://www.rfnnt.jahia.ep.europa.eu'>
+
+[rfnnt:epRfnParagraph] > rfnnt:epRfnContent
+ - subtitle1 (string) internationalized
+ - subtitle2 (string) internationalized
+ - description (string, richtext) mandatory internationalized
+
+[rfnnt:epRfnTheme] > rfnnt:epRfnContent, jmix:editorialContent, mix:title, rfnmix:epRfnBreadcrumbEnabled, rfnmix:epRfnComponent, rfnmix:epRfnMenuItem
+ + * (rfnnt:epRfnFormFile, rfnnt:epRfnFormUrl, rfnnt:epRfnMultimediaElement, rfnnt:epRfnParagraph, rfnnt:epRfnReferenceDocumentFile, rfnnt:epRfnReferenceDocumentUrl)
+ - responsible1 (weakreference, picker[type='rfnnt:epRfnContact'])
+ - responsible2 (weakreference, picker[type='rfnnt:epRfnContact'])
+

@@ -1,0 +1,24 @@
+<jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<jnt = 'http://www.jahia.org/jahia/nt/1.0'>
+<mix = 'http://www.jcp.org/jcr/mix/1.0'>
+<rfnmix = 'http://www.rfnmix.jahia.ep.europa.eu'>
+<rfnnt = 'http://www.rfnnt.jahia.ep.europa.eu'>
+
+[rfnnt:epRfnBreadcrumb] > rfnnt:epRfnContent, jmix:studioOnly, rfnmix:epRfnComponent
+ - currentNode (weakreference) mandatory autocreated internationalized
+
+[rfnnt:epRfnMenu] > rfnnt:epRfnContent, jmix:studioOnly, rfnmix:epRfnComponent
+ - startNode (weakreference)
+ - depth (long) = '1' indexed=no
+
+[rfnmix:epRfnRightNavigationItem] mixin
+
+[rfnnt:epRfnRightLinkList] > rfnnt:epRfnContent, mix:title
+
+[jnt:epRfnTopNavigationMenuItem] > rfnnt:epRfnContent, rfnmix:epRfnComponent
+
+[rfnnt:epRfnTopNavigationMenu] > rfnnt:epRfnContent, jmix:studioOnly, mix:title, rfnmix:epRfnComponent
+ + * (jnt:epRfnTopNavigationMenuItem)
+
+[rfnnt:epRfnImageLink] > rfnnt:epRfnContent, jmix:link, rfnmix:epRfnComponent, rfnmix:epRfnPicture
+
